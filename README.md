@@ -1,3 +1,22 @@
+# Test environment
+
+* Windows 10 Pro
+* RabbitMQ 3.9.13
+* Erlang 24.2.1
+* Plugins (truncated):
+    ```
+    C:\Users\bakkenl\rmq-server\rabbitmq_server-3.9.13> .\sbin\rabbitmq-plugins.bat list
+    Listing plugins with pattern ".*" ...
+     Configured: E = explicitly enabled; e = implicitly enabled
+     | Status: * = running on rabbit@bakkenl-z01
+     |/
+    [E*] rabbitmq_management               3.9.13
+    [e*] rabbitmq_management_agent         3.9.13
+    [e*] rabbitmq_mqtt                     3.9.13
+    [e*] rabbitmq_web_dispatch             3.9.13
+    [E*] rabbitmq_web_mqtt                 3.9.13
+    ```
+
 Test the local Web MQTT TLS port *and* present a client certificate:
 
 ```
