@@ -91,7 +91,11 @@
         var debug = pipe('#second');
 
         var wsbroker = location.hostname || 'localhost';  //mqtt websocket enabled broker
-        var wsport = 15675; // port for above
+        // Note: this is the NON-TLS port
+        // var wsport = 15675;
+
+        // Note: this is TLS port
+        var wsport = 15676; // port for above
 
         var client = new Paho.Client(wsbroker, wsport, "/ws",
             "myclientid_" + parseInt(Math.random() * 100, 10));
@@ -120,6 +124,11 @@
         if (location.protocol == "https:") {
             options.useSSL = true;
         }
+
+        // NOTE:
+        // https://github.com/rabbitmq/rabbitmq-server/discussions/4027
+        // Forcing the use of TLS here. Client certificates are NOT sent.
+        options.useSSL = true;
 
         debug("CONNECT TO " + wsbroker + ":" + wsport);
         client.connect(options);

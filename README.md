@@ -1,7 +1,13 @@
-Test the local Web MQTT TLS port:
+Test the local Web MQTT TLS port *and* present a client certificate:
 
 ```
 openssl s_client -connect localhost:15676 -cert ./certs/client_certificate.pem -key ./certs/client_key.pem -CAfile ./certs/ca_certificate.pem -verify 8 -verify_hostname bakkenl-z01
+```
+
+Test the local Web MQTT TLS port *without presenting* a client certificate:
+
+```
+openssl s_client -connect localhost:15676 -CAfile ./certs/ca_certificate.pem -verify 8 -verify_hostname bakkenl-z01
 ```
 
 Successful output:
